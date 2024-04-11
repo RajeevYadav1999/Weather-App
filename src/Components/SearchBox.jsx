@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-catch */
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import {  useState } from 'react';
@@ -31,7 +32,7 @@ const SearchBox = ({updateInfo}) => {
       };
       return result
     }catch(error){
-      console.log(error);
+      throw error;
     }
 }
 
@@ -47,7 +48,7 @@ const SearchBox = ({updateInfo}) => {
     let newInfo = await getWeather()
     updateInfo(newInfo)
     } catch(error){
-      setError(error)
+      setError(true)
     }
   };
 
@@ -55,10 +56,10 @@ const SearchBox = ({updateInfo}) => {
   return (
     <>
     <div>
-       <h1 className='text-2xl underline'> Search For The Weather</h1>
+       <h1 className='text-2xl underline bg-green-400 p-2'> Search For The Weather</h1>
       <form onSubmit={handleSubmit}>
        <div className='m-4'>
-        <TextField
+        <TextField style={{backgroundColor: "white"}}
               required
               id="outlined-required"
               label="City Name"
