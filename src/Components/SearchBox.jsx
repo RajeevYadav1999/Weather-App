@@ -74,7 +74,7 @@ const SearchBox = ({updateInfo}) => {
               </Button>
             </div>
         </form>
-        {error && <p>Invalid City Name</p>}
+        {error && <p className='bg-red-200 text-xl'>Invalid City Name</p>}
           
     </div> 
     </>
